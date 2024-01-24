@@ -1,0 +1,26 @@
+<app-select-type></app-select-type>
+<button type="button" class="btn btn-primary btn-lg" (click)="goToAddIssues()">Añadir incidencia</button>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+    <th scope="col">#</th>
+    <th scope="col">Título</th>
+    <th scope="col">Estado</th>
+    <th scope="col">Editar/Eliminar</th>
+    </tr>
+    </thead>
+    <tbody>
+        @for (issue of issues; track issue._id) {
+            <tr>
+                <th scope="row">{{issue._id}}</th>
+                <td>{{issue.title}}</td>
+                <td>{{issue.status}}</td>
+                <td>
+                    <i class="bi bi-pencil mx-2"></i>
+                    <button (click)="delete(issue._id)"><i class="bi bi-trash"></i></button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
